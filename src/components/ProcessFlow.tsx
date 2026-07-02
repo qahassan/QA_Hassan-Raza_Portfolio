@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ClipboardList, Shield, Zap, Search, Activity } from "lucide-react";
-import { SectionHeading, Reveal } from "./Reveal";
+import { Check, Activity } from "lucide-react";
+import { SectionHeading } from "./Reveal";
 import { testingProcess } from "../data/content";
 
 // Detailed QA checklist tasks for Hassan's testing process stages
