@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShieldAlert, Award, Code, CheckCircle, Terminal, Layers } from "lucide-react";
-import { SectionHeading, Reveal } from "./Reveal";
+import { SectionHeading } from "./Reveal";
 import { skillGroups } from "../data/content";
 
 // Specific SQA proficiency ratings for Hassan's skills

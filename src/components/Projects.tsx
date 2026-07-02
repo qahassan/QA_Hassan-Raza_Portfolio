@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Layers, Wrench, Target, TrendingUp, Filter, ShieldCheck, CheckCircle2, AlertTriangle, Bug } from "lucide-react";
+import { ChevronDown, Layers, Wrench, Target, TrendingUp, Filter, CheckCircle2 } from "lucide-react";
 import { SectionHeading, Reveal } from "./Reveal";
 import { projects } from "../data/content";
 
