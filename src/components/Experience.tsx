@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-import { GitBranch, GitCommit, Shield, Briefcase, Calendar } from "lucide-react";
 import { SectionHeading, Reveal } from "./Reveal";
 import { experience } from "../data/content";
 
