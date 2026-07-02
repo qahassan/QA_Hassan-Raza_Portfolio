@@ -1,3 +1,4 @@
+import { GitCommit, Briefcase, Calendar } from "lucide-react";
 import { SectionHeading, Reveal } from "./Reveal";
 import { experience } from "../data/content";
 
