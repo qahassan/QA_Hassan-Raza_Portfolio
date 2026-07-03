@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hassan Raza - Resume</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      line-height: 1.5;
+      padding: 40px;
+      background-color: #ffffff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 25px;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 15px;
+    }
+    
+    .name {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+    
+    .title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 11px;
+      color: #334155;
+    }
+    
+    .contact-info a {
+      color: #0f172a;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    
+    .section {
+      margin-bottom: 22px;
+    }
+    
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #0f172a;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+    }
+    
+    .summary-text {
+      font-size: 11.5px;
+      color: #334155;
+      text-align: justify;
+    }
+    
+    .job {
+      margin-bottom: 15px;
+    }
+    
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+    
+    .job-title-company {
+      font-size: 12px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    
+    .job-title-company span {
+      font-weight: 700;
+    }
+    
+    .job-date {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #475569;
+      font-style: italic;
+    }
+    
+    .job-summary {
+      font-size: 11px;
+      color: #475569;
+      margin-bottom: 6px;
+      font-style: italic;
+    }
+    
+    ul {
+      list-style-type: none;
+      margin-left: 10px;
+    }
+    
+    li {
+      font-size: 11px;
+      color: #334155;
+      position: relative;
+      padding-left: 12px;
+      margin-bottom: 4px;
+    }
+    
+    li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #0f172a;
+      font-weight: bold;
+    }
+    
+    .project {
+      margin-bottom: 14px;
+    }
+    
+    .project-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 3px;
+    }
+    
+    .project-desc {
+      font-size: 11px;
+      color: #475569;
+      margin-bottom: 5px;
+      font-style: italic;
+    }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-cols: repeat(2, 1fr);
+      gap: x-8px;
+      row-gap: 6px;
+    }
+    
+    .skill-item {
+      font-size: 11px;
+      color: #334155;
+    }
+    
+    .skill-item strong {
+      color: #0f172a;
+      font-weight: 600;
+    }
+    
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .education-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+    
+    .education-degree {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    
+    .education-school {
+      font-size: 11px;
+      color: #475569;
+      font-weight: 500;
+    }
+    
+    .education-date {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #475569;
+    }
+    
+    .education-courses {
+      font-size: 10px;
+      color: #475569;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    
+    @media print {
+      body {
+        padding: 0;
+        font-size: 11px;
+      }
+      @page {
+        size: A4;
+        margin: 1.6cm 1.4cm;
+      }
+      .contact-info a {
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1 class="name">Hassan Raza</h1>
+    <div class="title">Manual QA / SQA Engineer</div>
+    <div class="contact-info">
+      <span>Nadir Abad, Lahore Cantt</span>
+      <span>•</span>
+      <a href="mailto:qa.hassanraza@gmail.com">qa.hassanraza@gmail.com</a>
+      <span>•</span>
+      <span>+92 302 0533331</span>
+      <span>•</span>
+      <a href="https://linkedin.com/in/hassanrazaqa" target="_blank">linkedin.com/in/hassanrazaqa</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Professional Summary</h2>
+    <p class="summary-text">
+      Detail-oriented Manual QA with <strong>1+ year of experience</strong> delivering high-quality <strong>web and mobile applications</strong>. Skilled in <strong>API testing</strong> using Swagger, Postman, and Insomnia, and creating comprehensive test cases using <strong>TestRail</strong> to cover all project scenarios. Experienced in identifying and resolving bugs using <strong>Jira and Asana</strong> to enhance user experience. A collaborative team player committed to continuous improvement and delivering reliable software solutions.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Professional Experience</h2>
+    
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title-company"><span>Junior SQA Engineer</span> - FoliumAI | <span style="font-weight: 500;">Wapda Town, Lahore</span></div>
+        <div class="job-date">Feb 2025 – Present</div>
+      </div>
+      <div class="job-summary">Proactive Manual SQA Engineer testing web and mobile projects, performing API testing, creating documentation, and ensuring high-quality, reliable software.</div>
+      <ul>
+        <li>Performed API testing using Postman, Swagger, and Insomnia for endpoint verification.</li>
+        <li>Developed and executed functional, regression, integration, and API test cases.</li>
+        <li>Created detailed project documentation including user flows and test strategy documents.</li>
+        <li>Identified, documented, and tracked bugs efficiently using Jira.</li>
+        <li>Contributed to multiple projects: Foster Ferret, WZRD Pro, SeedFunds, ShareMundo.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title-company"><span>SQA Engineer (Intern &rarr; Junior)</span> - Kreatorz.co | <span style="font-weight: 500;">Lahore Cantt</span></div>
+        <div class="job-date">Sep 2024 – Jan 2025</div>
+      </div>
+      <div class="job-summary">Performed manual testing for mobile and web applications, progressing from internship to junior SQA role, while ensuring software quality, identifying bugs, and improving overall user experience.</div>
+      <ul>
+        <li>Created test cases and executed functional & regression testing.</li>
+        <li>Reported and tracked bugs using Jira with actionable insights.</li>
+        <li>Collaborated with developers for timely issue resolution.</li>
+        <li>Contributed to: Ride-Share App, Ryvato iOS App, Attendance Management System.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Professional Projects</h2>
+    
+    <div class="project">
+      <div class="project-title">Foster Ferret — Web & Mobile App</div>
+      <div class="project-desc">Ensured quality of multi-functional features including wellness check-ins, AI chat, Shopify integration, file storage, one-to-one chat, and multi-role dashboards.</div>
+      <ul>
+        <li>Analyzed client requirements and created comprehensive test documentation.</li>
+        <li>Performed functional, regression, and UI/UX testing across browsers.</li>
+        <li>Conducted API testing using Postman and tracked bugs via Jira.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-title">SeedFunds — Web & Mobile App</div>
+      <div class="project-desc">Delivered high-quality testing for SeedFunds platform featuring fund allocation, vendor management, Stripe payments, AI chat, Google Maps, and order tracking.</div>
+      <ul>
+        <li>Designed and executed test cases for functional, regression, and integration testing.</li>
+        <li>Validated UI/UX consistency, timeline views, analytics, and multi-platform performance.</li>
+        <li>Performed API testing using Insomnia and managed bug reporting via Jira.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-title">WZRD Pro — Web App</div>
+      <div class="project-desc">Ensured quality of WZRD Pro platform featuring admin dashboards, subscription management, user permissions, crypto learning modules, portfolio creation, risk calculation, and rewards system.</div>
+      <ul>
+        <li>Designed and executed test cases for functional, regression, and integration testing.</li>
+        <li>Validated UI/UX, dashboards, and subscription workflows.</li>
+        <li>Performed API testing using Insomnia; verified security, permissions, and data integrity.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-item"><strong>Manual Testing:</strong> Functional, Regression, Integration, System, Exploratory Testing</div>
+      <div class="skill-item"><strong>QA Documentation:</strong> Test strategies, user flows, reports, and project docs</div>
+      <div class="skill-item"><strong>API Testing:</strong> Postman, Swagger, Insomnia</div>
+      <div class="skill-item"><strong>Cross-Platform Testing:</strong> Web, mobile, browser & device compatibility</div>
+      <div class="skill-item"><strong>Bug Tracking:</strong> Jira, Asana</div>
+      <div class="skill-item"><strong>UI/UX Verification:</strong> Responsive, intuitive, and consistent design validation</div>
+      <div class="skill-item"><strong>Requirement Analysis:</strong> Understanding requirements & creating scenarios</div>
+      <div class="skill-item"><strong>Root Cause Analysis:</strong> Investigating, prioritizing, and resolving complex bugs</div>
+      <div class="skill-item"><strong>Test Case Management:</strong> TestRail - creating, and executing test cases</div>
+      <div class="skill-item"><strong>Release Validation:</strong> Pre-release checks to ensure stability and quality</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Soft Skills</h2>
+    <div class="skills-list">
+      <span class="skill-item"><strong>•</strong> Presentation & Communication</span>
+      <span class="skill-item"><strong>•</strong> Problem Solving & Critical Thinking</span>
+      <span class="skill-item"><strong>•</strong> Attention to Detail</span>
+      <span class="skill-item"><strong>•</strong> Team Collaboration</span>
+      <span class="skill-item"><strong>•</strong> Continuous Learning</span>
+      <span class="skill-item"><strong>•</strong> Time Management</span>
+      <span class="skill-item"><strong>•</strong> Process Improvement</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Education</h2>
+    <div class="education-header">
+      <div class="education-degree">Bachelor of Computer Science</div>
+      <div class="education-date">Oct 2020 – July 2024</div>
+    </div>
+    <div class="education-school">Lahore Garrison University | <span style="font-style: italic; font-weight: normal; color: #475569;">DHA, Lahore</span></div>
+    <div class="education-courses">
+      <strong>Relevant Courses:</strong> Operating Systems, OOP, Data Structures & Algorithms, Networking, Database Management, Network Security, Software Engineering Concepts, and System Design Fundamentals.
+    </div>
+  </div>
+
+</body>
+</html>
