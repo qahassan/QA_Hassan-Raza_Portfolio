@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ShieldCheck, Menu, X, Bug } from "lucide-react";
+import { Menu, X, Bug } from "lucide-react";
+import profilePic from "../assets/hero.png";
 
 const links = [
   { href: "#about", label: "About" },
@@ -78,8 +79,10 @@ export default function Navbar({
           }`}
       >
         <a href="#hero" className="flex items-center gap-2 font-display font-semibold text-lg" data-cursor-hover>
-          <span className="grid place-items-center w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-400">
-            <ShieldCheck size={16} className="text-white" />
+          <span className="rounded-full p-[1px] bg-gradient-to-br from-indigo-500 to-cyan-400">
+            <span className="flex items-center justify-center w-9 h-9 rounded-full overflow-hidden bg-slate-950 border border-white/10">
+              <img src={profilePic} alt="Hassan Raza" className="w-full h-full object-cover object-center" />
+            </span>
           </span>
           Hassan Raza<span className="text-gradient">.QA</span>
         </a>
@@ -121,14 +124,6 @@ export default function Navbar({
             <Bug size={14} className={qaMode ? "animate-spin" : ""} />
             {qaMode ? `QA INSPECT: ${reportedCount}/4` : "QA MODE: OFF"}
           </button>
-
-          <a
-            href="#contact"
-            data-cursor-hover
-            className="inline-flex items-center text-sm font-medium px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 hover:shadow-[0_0_25px_-5px_rgba(79,70,229,0.8)] transition-shadow"
-          >
-            Let's talk
-          </a>
         </div>
 
         <div className="flex md:hidden items-center gap-3">

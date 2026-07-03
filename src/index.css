@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
-@theme {
-  --color-bg: #050816;
+:root {
+  --color-bg: #02050f;
   --color-card: rgba(255,255,255,0.05);
   --color-primary: #4F46E5;
   --color-secondary: #06B6D4;
@@ -60,6 +60,33 @@ body { background: var(--color-bg); color: #fff; font-family: var(--font-sans); 
   50% { transform: translateY(-18px); }
 }
 .animate-float { animation: float-y 6s ease-in-out infinite; }
+
+.profile-ring {
+  position: relative;
+  border: 2px solid transparent;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.profile-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(79,70,229,0.9), rgba(6,182,212,0.75), rgba(34,197,94,0.8));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: ring-spin 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes ring-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
 @keyframes grid-move {
   0% { background-position: 0 0; }

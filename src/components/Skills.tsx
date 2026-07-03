@@ -5,7 +5,6 @@ import {
   Award,
   Code,
   CheckCircle,
-  Terminal,
   Layers,
   type LucideIcon,
 } from "lucide-react";
@@ -46,7 +45,7 @@ const SKILL_PROFICIENCY: Record<
 const CATEGORY_ICONS: Record<string, LucideIcon> = {
   "Core Testing": ShieldAlert,
   "API & Tools": Code,
-  "Process & Reporting": Terminal,
+  "Process & Reporting": CheckCircle,
   Coverage: Layers,
 };
 
@@ -72,8 +71,8 @@ export default function Skills() {
           subtitle="Select a capability suite to scan Hassan's proficiency across core quality systems."
         />
 
-        <div className="grid md:grid-cols-[260px_1fr] gap-8 items-start mt-12">
-          <div className="flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0">
+        <div className="grid gap-8 mt-12">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
             {skillGroups.map((group, idx) => {
               const Icon = CATEGORY_ICONS[group.title] || Award;
               const isSelected = activeGroupIndex === idx;
@@ -82,10 +81,10 @@ export default function Skills() {
                 <button
                   key={group.title}
                   onClick={() => setActiveGroupIndex(idx)}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-xl transition ${
+                  className={`flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold transition-all duration-200 ${
                     isSelected
-                      ? "bg-slate-900 border border-cyan-400 text-cyan-400"
-                      : "bg-white/5 border border-white/10 text-slate-400"
+                      ? "border-cyan-400 bg-slate-900 text-cyan-300 shadow-[0_0_25px_-10px_rgba(34,211,238,0.65)]"
+                      : "border-slate-700 bg-slate-950/40 text-slate-300 hover:border-cyan-400/40 hover:bg-slate-900/80"
                   }`}
                 >
                   <Icon

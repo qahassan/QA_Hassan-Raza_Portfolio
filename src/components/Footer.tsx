@@ -1,13 +1,16 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, ArrowUp } from "lucide-react";
+import { ArrowUp } from "lucide-react";
+import profilePic from "../assets/hero.png";
 
 export default function Footer() {
   return (
     <footer className="relative py-12 px-6 border-t border-white/10">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-2 font-display font-semibold text-lg">
-          <span className="grid place-items-center w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-400">
-            <ShieldCheck size={16} className="text-white" />
+        <div className="flex items-center gap-3 font-display font-semibold text-lg">
+          <span className="rounded-full p-[1px] bg-gradient-to-br from-indigo-500 to-cyan-400">
+            <span className="flex items-center justify-center w-9 h-9 rounded-full overflow-hidden bg-slate-950 border border-white/10">
+              <img src={profilePic} alt="Hassan Raza" className="w-full h-full object-cover object-center" />
+            </span>
           </span>
           Hassan Raza<span className="text-gradient">.QA</span>
         </div>

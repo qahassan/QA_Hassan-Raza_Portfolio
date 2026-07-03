@@ -1,5 +1,5 @@
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { ArrowRight, Download, Mail, ShieldCheck, Bug, CheckCircle2, FlaskConical, Radar } from "lucide-react";
+import { ArrowRight, Download, ShieldCheck, Bug, CheckCircle2, FlaskConical, Radar } from "lucide-react";
 import { useState, useEffect } from "react";
 import TypeCycle from "./TypeCycle";
 import { profile } from "../data/content";
@@ -110,7 +110,7 @@ export default function Hero({
         </motion.div>
       ))}
 
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-50 items-center relative z-10">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -156,16 +156,18 @@ export default function Hero({
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-8 flex flex-wrap gap-4 items-center"
+            className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2"
           >
-            <a
+            <motion.a
               href="#projects"
+              whileHover={{ y: -2, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               data-cursor-hover
-              className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 font-medium hover:shadow-[0_0_30px_-5px_rgba(79,70,229,0.9)] transition-all hover:-translate-y-0.5"
+              className="group inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 text-sm font-medium hover:shadow-[0_0_25px_-5px_rgba(79,70,229,0.85)] transition-all"
             >
               View Projects
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+            </motion.a>
 
             {/* Runaway Download Resume Button */}
             <div className="relative inline-block">
@@ -173,9 +175,11 @@ export default function Hero({
                 href="/resume.pdf"
                 onMouseEnter={handleBtnHover}
                 animate={{ x: btnOffset.x, y: btnOffset.y }}
+                whileHover={{ y: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 320, damping: 14 }}
                 data-cursor-hover
-                className={`inline-flex items-center gap-2 px-6 py-3.5 rounded-xl glass font-medium transition-all ${
+                className={`inline-flex w-full justify-center items-center gap-2 px-4 py-3 rounded-xl glass text-sm font-medium transition-all ${
                   qaMode && !isBug1Reported
                     ? "border-rose-500/40 text-rose-300 shadow-[0_0_15px_rgba(244,63,94,0.15)]"
                     : "hover:-translate-y-0.5 hover:text-white"
@@ -209,14 +213,6 @@ export default function Hero({
                 </button>
               )}
             </div>
-
-            <a
-              href="#contact"
-              data-cursor-hover
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-white/10 font-medium hover:bg-white/5 hover:-translate-y-0.5 transition-all"
-            >
-              <Mail size={16} /> Contact Me
-            </a>
           </motion.div>
         </div>
 
@@ -353,21 +349,54 @@ export default function Hero({
         </motion.div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500"
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 1.4, duration: 0.6 }}
+      className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+    >
+       <motion.span
+        animate={{ opacity: [0.5, 0.9, 0.5] }}
+        transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+        className="text-[10px] font-mono tracking-[0.35em] text-slate-500"
+    >
+    SCROLL
+  </motion.span>
+
+  <div className="flex flex-col items-center -space-y-1">
+    {[
+      { color: "#818cf8", delay: 0 },
+      { color: "#5fc7a8", delay: 0.15 },
+      { color: "#34d399", delay: 0.3 },
+    ].map((chev, i) => (
+      <motion.svg
+        key={i}
+        width="20"
+        height="11"
+        viewBox="0 0 20 11"
+        animate={{
+          opacity: [0.25, 1, 0.25],
+          y: [0, 4, 0],
+        }}
+        transition={{
+          duration: 1.8,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: chev.delay,
+        }}
       >
-        <span className="text-xs font-mono tracking-widest">SCROLL</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity }}
-          className="w-5 h-8 rounded-full border border-slate-600 flex justify-center pt-1.5"
-        >
-          <div className="w-1 h-1.5 rounded-full bg-slate-400" />
-        </motion.div>
-      </motion.div>
+        <path
+          d="M2 1.5L10 9L18 1.5"
+          stroke={chev.color}
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+      </motion.svg>
+    ))}
+  </div>
+</motion.div>
     </section>
   );
 }
