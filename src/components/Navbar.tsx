@@ -22,11 +22,47 @@ export default function Navbar({
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = links.map((link) => link.href.slice(1));
+
+    const updateActiveSection = () => {
+      const viewportMiddle = window.scrollY + window.innerHeight / 2;
+      let currentSection = sectionIds[0];
+      let closestDistance = Infinity;
+
+      sectionIds.forEach((id) => {
+        const element = document.getElementById(id);
+        if (!element) return;
+
+        const { top, height } = element.getBoundingClientRect();
+        const elementTop = window.scrollY + top;
+        const sectionCenter = elementTop + height / 2;
+        const distance = Math.abs(sectionCenter - viewportMiddle);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          currentSection = id;
+        }
+      });
+
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", updateActiveSection);
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, []);
 
   return (
@@ -37,7 +73,7 @@ export default function Navbar({
       className="fixed top-0 inset-x-0 z-50 flex justify-center px-4 pt-4"
     >
       <div
-        className={`w-full max-w-6xl flex items-center justify-between rounded-2xl px-5 transition-all duration-300 ${scrolled ? "glass py-2.5 shadow-[0_0_40px_-15px_rgba(79,70,229,0.6)]" : "py-3 bg-transparent"
+        className={`w-full max-w-6xl flex items-center justify-between rounded-2xl px-5 transition-all duration-300 ${scrolled ? "glass bg-slate-950/80 py-2.5 shadow-[0_0_40px_-15px_rgba(79,70,229,0.6)]" : "py-3 bg-transparent"
           }`}
       >
         <a href="#hero" className="flex items-center gap-2 font-display font-semibold text-lg" data-cursor-hover>
@@ -48,12 +84,27 @@ export default function Navbar({
         </a>
 
         <nav className="hidden md:flex items-center gap-8 text-sm text-slate-300">
-          {links.map((l) => (
-            <a key={l.href} href={l.href} className="relative group" data-cursor-hover>
-              {l.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-indigo-400 to-cyan-400 group-hover:w-full transition-all duration-300" />
-            </a>
-          ))}
+          {links.map((l) => {
+            const sectionId = l.href.slice(1);
+            const isActive = activeSection === sectionId;
+
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`relative group transition-colors duration-300 ${isActive ? "text-white" : "text-slate-300 hover:text-white"}`}
+                data-cursor-hover
+              >
+                <span className="relative z-10">{l.label}</span>
+                <span
+                  className={`absolute -bottom-1 left-0 h-px bg-gradient-to-r from-indigo-400 to-cyan-400 transition-all duration-300 ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
+                />
+                {isActive && (
+                  <span className="absolute inset-x-0 -bottom-2 mx-auto h-1 w-10 rounded-full bg-indigo-500/40 blur-sm animate-[pulse_1.5s_ease-in-out_infinite]" />
+                )}
+              </a>
+            );
+          })}
         </nav>
 
         {/* Action Button & SQA Toggle Container */}
